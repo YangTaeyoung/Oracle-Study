@@ -18,7 +18,13 @@ select trunc(12251.52678,4) as TRUNC_EX1,
 -- 데이터 베이스에서 하기보단, 자바에서 하는 경우가 많음.
 -- 이런 함수가 존재한다. 정도만 기억
 
+-- 날짜 관련 함수 : sysdate
 select sysdate as NOW,
        sysdate+1 as TOMORROW,
        sysdate-1 as yesterday
+  from dual;
+ 
+-- 몇 개월 후의 날짜를 구하기: add_month(더해질 대상 날짜, 더할 개월 수)
+select sysdate,
+       add_months(sysdate, 3)
   from dual;
