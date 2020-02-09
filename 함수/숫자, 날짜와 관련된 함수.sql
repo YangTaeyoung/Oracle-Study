@@ -28,3 +28,17 @@ select sysdate as NOW,
 select sysdate,
        add_months(sysdate, 3)
   from dual;
+  
+  -- 두 날짜간의 개월 수 차이를 구하는 함수: months_between( , )
+select empno, ename, hiredate, sysdate,
+       months_between(hiredate, sysdate) as MONTH1,
+       months_between(sysdate, hiredate) as MONTH2,
+       trunc(months_between(sysdate,hiredate)) as MONTH3
+  from emp;
+ 
+-- 특정 날짜를 기준으로 다움주 월요일 날짜를 반환하는 함수: next_day(특정 날짜,요일)
+-- 특정 날짜가 속해있는 달의 마지막 날짜를 반환하는 함수: last_day(끝날을 알고 싶은 날짜)
+select sysdate,
+       next_day(sysdate,'월요일'),
+       last_day(sysdate)
+  from dual;
