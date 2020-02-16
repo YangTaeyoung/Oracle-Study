@@ -35,3 +35,10 @@ select e.empno, e.ename, e.sal, s.grade
                   from emp
                  where job = 'SALESMAN');
   
+-- 다중행 함수 사용
+select e.empno, e.ename, e.sal, s.grade
+  from emp e, salgrade s
+ where e.sal between s.losal and s.hisal
+   and e.sal > all(select sal
+                     from emp
+                    where job = 'SALESMAN');
