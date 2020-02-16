@@ -1,12 +1,14 @@
  --Q.1 SQL99이전
 select d.deptno, d.dname, e.empno, e.ename, e.sal
   from dept d, emp e
- where d.deptno = e.deptno;
+ where d.deptno = e.deptno
+   and e.sal > 2000;
 
 --Q.1 SQL99이후
 select deptno, d.dname, e.empno, e.ename, e.sal
-  from dept d join emp e using(deptno);
-
+  from dept d join emp e using(deptno) 
+ where e.sal > 2000;
+ 
 --Q.2 SQL99 이전
 select d.deptno, d.dname, 
        trunc(avg(e.sal))as avg_sal, 
